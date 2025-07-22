@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "12953438698",
+    "firebase_url": "https://matme-51044-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "matme-51044",
+    "storage_bucket": "matme-51044.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:12953438698:android:5da3f69013fb196dbf4a93",
+        "android_client_info": {
+          "package_name": "com.example.matme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "12953438698-ufbnhno9b869pundi2e6hcjaq5fj0s1v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIS9f8wweQZBdD0Nqd8YwHZtOkqVKN0uM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "12953438698-ufbnhno9b869pundi2e6hcjaq5fj0s1v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

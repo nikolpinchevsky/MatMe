@@ -1,0 +1,26 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt"
+    android:viewportWidth="512"
+    android:viewportHeight="512"
+    android:width="512dp"
+    android:height="512dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="import android.content.Intent&#xA;import android.os.Bundle&#xA;import android.widget.Button&#xA;import android.widget.EditText&#xA;import android.widget.Toast&#xA;import androidx.appcompat.app.AppCompatActivity&#xA;import com.google.firebase.auth.FirebaseAuth" />
+        <path
+            android:pathData="M115.5 27L396.5 27Q438 34 460 60.5L476 84.5L482 100.5L485 115.5L485 396.5Q478 438 451.5 460L427.5 476L411.5 482L396.5 485L115.5 485L97.5 481L80.5 474Q64.2 464.8 52 451.5L36 427.5L30 411.5L27 396.5L27 115.5Q34 74 60.5 52L84.5 36L97.5 31L115.5 27ZM118 59Q103 62 93 68L78 79L68 93L64 101L59 118L59 395L64 412L68 420L78 433L93 444Q103 450 118 453L395 453Q418 448 433 434Q448 420 453 395L453 118Q448 94 434 80Q420 64 395 59L118 59Z"
+            android:fillColor="#000000"
+            android:fillAlpha="0.9764706"
+            android:strokeColor="#000000"
+            android:strokeAlpha="0.9764706"
+            android:strokeWidth="1" />
+        <path
+            android:pathData="M251.5 123L260.5 123L270 130.5L272 135.5L272 240L376.5 240Q383.7 241.8 387 247.5Q390.5 251.5 389 260.5L381.5 270L376.5 272L272 272L272 376.5Q270.2 383.7 264.5 387Q260.5 390.5 251.5 389L242 381.5L240 376.5L240 272L135.5 272Q128.3 270.2 125 264.5Q121.5 260.5 123 251.5L130.5 242L135.5 240L240 240L240 135.5Q241.8 128.3 247.5 125L251.5 123Z"
+            android:fillColor="#000000"
+            android:fillAlpha="0.9764706"
+            android:strokeColor="#000000"
+            android:strokeAlpha="0.9764706"
+            android:strokeWidth="1" />
+</vector>

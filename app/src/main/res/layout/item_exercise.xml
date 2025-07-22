@@ -1,0 +1,26 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="12dp">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/exerciseName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/exercise_name"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/heartIcon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/red_heart_empty"
+        android:contentDescription="@string/favorite_icon"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:padding="4dp" />
+</RelativeLayout>

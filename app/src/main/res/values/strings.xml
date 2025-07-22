@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">MatMe</string>
+    <string name="email_address">email@domain.com</string>
+    <string name="password">password</string>
+    <string name="matme">MatMe</string>
+    <string name="log_in">Log In</string>
+    <string name="enter_your_email_to_log_in">Enter your email to log In</string>
+    <string name="sign_in">Sign In</string>
+    <string name="create_an_account_to_get_started">Create an account to get started</string>
+    <string name="focus_on_areas">Focus on areas</string>
+    <string name="continue_with_google">Continue with Google</string>
+    <string name="favorites">Favorites</string>
+    <string name="profile">Profile</string>
+    <string name="add">Add</string>
+    <string name="search">Search</string>
+    <string name="home">Home</string>
+    <string name="stomach">Stomach</string>
+    <string name="buttock">Buttock</string>
+    <string name="chest">Chest</string>
+    <string name="legs">Legs</string>
+    <string name="arms">Arms</string>
+    <string name="back">Back</string>
+    <string name="custom_workout">Custom workout</string>
+    <string name="favorite_exercises">Favorite exercises</string>
+    <string name="search_exercises">Search exercises</string>
+    <string name="popular">Popular</string>
+    <string name="search_icon">search icon</string>
+    <string name="Save_workout">Save workout</string>
+    <string name="select_exercises">Select exercises</string>
+    <string name="create_workout_plan">Create workout plan</string>
+    <string name="workout_plan_name">Workout plan name</string>
+    <string name="name">Name</string>
+    <string name="e_g_full_body_workout">e.g. Full body workout</string>
+    <string name="favorite_exercises_">Favorite Exercises:</string>
+    <string name="favorite_icon">Favorite Icon</string>
+    <string name="exercise_name">Exercise Name</string>
+    <string name="default_web_client_id">1:12953438698:android:5da3f69013fb196dbf4a931:12953438698:android:5da3f69013fb196dbf4a93</string>
+
+</resources>
