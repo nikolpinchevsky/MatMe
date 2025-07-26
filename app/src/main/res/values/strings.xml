@@ -39,5 +39,6 @@
     <string name="custom_workouts">Custom Workouts</string>
     <string name="favorites_">Favorites</string>
     <string name="log_out">Log Out</string>
+    <string name="text">...</string>
 
 </resources>

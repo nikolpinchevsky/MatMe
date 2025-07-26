@@ -186,6 +186,4 @@
                 android:padding="@dimen/icons_padding" />
     </LinearLayout>
 
-
-
 </LinearLayout>

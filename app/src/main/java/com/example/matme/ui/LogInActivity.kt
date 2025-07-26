@@ -36,10 +36,8 @@ class LogInActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.buttonSignIn).setOnClickListener {
-            Toast.makeText(this,
-                "Navigate to sign-up screen",
-                Toast.LENGTH_SHORT)
-                .show()
+            val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
         }
     }
 
