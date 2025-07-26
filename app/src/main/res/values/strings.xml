@@ -35,5 +35,9 @@
     <string name="favorite_icon">Favorite Icon</string>
     <string name="exercise_name">Exercise Name</string>
     <string name="default_web_client_id">1:12953438698:android:5da3f69013fb196dbf4a931:12953438698:android:5da3f69013fb196dbf4a93</string>
+    <string name="description">Description</string>
+    <string name="custom_workouts">Custom Workouts</string>
+    <string name="favorites_">Favorites</string>
+    <string name="log_out">Log Out</string>
 
 </resources>

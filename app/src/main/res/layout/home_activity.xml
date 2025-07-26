@@ -4,225 +4,234 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp"
+    android:padding="@dimen/padding_16"
     android:background="@android:color/white">
-
-    <com.google.android.material.textview.MaterialTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/focus_on_areas"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:textColor="@color/black"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="24dp" />
-
-
-    <GridLayout
-        android:id="@+id/recyclerViewExercises"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:columnCount="2"
-        android:alignmentMode="alignMargins"
-        android:useDefaultMargins="true"
-        android:layout_marginBottom="32dp"
-        android:gravity="center">
-
-        <LinearLayout
-            android:id="@+id/back"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:padding="16dp"
-            android:layout_margin="8dp">
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/back" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/back"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginTop="8dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/arms"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:padding="16dp">
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/arms" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/arms"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginTop="8dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/legs"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:padding="16dp">
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/legs" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/legs"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginTop="8dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/chest"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:padding="16dp">
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/chest" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/chest"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginTop="8dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/buttock"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:padding="16dp">
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/buttock" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/buttock"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginTop="8dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/stomach"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:padding="16dp">
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/stomach" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/stomach"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginTop="8dp" />
-        </LinearLayout>
-
-    </GridLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.1"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/layout_marginTop_32">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/focus_on_areas"
+            android:textSize="@dimen/Focus_on_areas_text_size"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginBottom="@dimen/focus_on_areas_margin"
+            android:gravity="center" />
+
+        <GridLayout
+            android:id="@+id/recyclerViewExercises"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:alignmentMode="alignMargins"
+            android:useDefaultMargins="true"
+            android:gravity="center_horizontal">
+
+            <LinearLayout
+                android:id="@+id/back"
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="@dimen/padding_8"
+                android:layout_margin="@dimen/layout_margin_4">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="@dimen/layout_width_height_64"
+                    android:layout_height="@dimen/layout_width_height_64"
+                    android:src="@drawable/back" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/back"
+                    android:textSize="@dimen/text_size_16"
+                    android:textStyle="bold"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/arms"
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="@dimen/padding_8"
+                android:layout_margin="@dimen/layout_margin_4">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="@dimen/layout_width_height_64"
+                    android:layout_height="@dimen/layout_width_height_64"
+                    android:src="@drawable/arms" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/arms"
+                    android:textSize="@dimen/text_size_16"
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/layout_margin_4" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/legs"
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="@dimen/padding_8"
+                android:layout_margin="@dimen/layout_margin_4">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="@dimen/layout_width_height_64"
+                    android:layout_height="@dimen/layout_width_height_64"
+                    android:src="@drawable/legs" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/legs"
+                    android:textSize="@dimen/text_size_16"
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/layout_margin_4" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/chest"
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="@dimen/padding_8"
+                android:layout_margin="@dimen/layout_margin_4">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="@dimen/layout_width_height_64"
+                    android:layout_height="@dimen/layout_width_height_64"
+                    android:src="@drawable/chest" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chest"
+                    android:textSize="@dimen/text_size_16"
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/layout_margin_4" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/buttock"
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="@dimen/padding_8"
+                android:layout_margin="@dimen/layout_margin_4">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="@dimen/layout_width_height_64"
+                    android:layout_height="@dimen/layout_width_height_64"
+                    android:src="@drawable/buttock" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/buttock"
+                    android:textSize="@dimen/text_size_16"
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/layout_margin_4" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/stomach"
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="@dimen/padding_8"
+                android:layout_margin="@dimen/layout_margin_4">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="@dimen/layout_width_height_64"
+                    android:layout_height="@dimen/layout_width_height_64"
+                    android:src="@drawable/stomach" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/stomach"
+                    android:textSize="@dimen/text_size_16"
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/layout_margin_4" />
+            </LinearLayout>
+
+        </GridLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="bottom|center"
-        android:layout_marginTop="8dp">
+        android:layout_marginTop="@dimen/l_top_margin">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iconHome"
-            android:layout_width="0dp"
-            android:layout_height="32dp"
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="@dimen/icons_height"
             android:layout_weight="1"
             android:src="@drawable/home"
             android:contentDescription="@string/home"
-            android:padding="4dp" />
+            android:padding="@dimen/icons_padding" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iconSearch"
-            android:layout_width="0dp"
-            android:layout_height="32dp"
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="@dimen/icons_height"
             android:layout_weight="1"
             android:src="@drawable/search"
             android:contentDescription="@string/search"
-            android:padding="4dp" />
+            android:padding="@dimen/icons_padding" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iconAdd"
-            android:layout_width="0dp"
-            android:layout_height="32dp"
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="@dimen/icons_height"
             android:layout_weight="1"
             android:src="@drawable/add"
             android:contentDescription="@string/add"
-            android:padding="4dp" />
+            android:padding="@dimen/icons_padding" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iconFavorites"
-            android:layout_width="0dp"
-            android:layout_height="32dp"
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="@dimen/icons_height"
             android:layout_weight="1"
             android:src="@drawable/heart"
             android:contentDescription="@string/favorites"
-            android:padding="4dp" />
+            android:padding="@dimen/icons_padding" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iconProfile"
-            android:layout_width="0dp"
-            android:layout_height="32dp"
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="@dimen/icons_height"
             android:layout_weight="1"
             android:src="@drawable/profile"
             android:contentDescription="@string/profile"
-            android:padding="4dp" />
+            android:padding="@dimen/icons_padding" />
     </LinearLayout>
-
 </LinearLayout>

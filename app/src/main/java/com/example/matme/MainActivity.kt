@@ -7,6 +7,7 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import com.example.matme.common.BottomNavigationBarActivity
 import com.example.matme.ui.*
+import com.example.matme.utils.DataSeeder
 import com.google.android.material.imageview.ShapeableImageView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -21,9 +22,12 @@ class MainActivity : BottomNavigationBarActivity() {
     private lateinit var auth: FirebaseAuth
     private lateinit var db: FirebaseDatabase
     private lateinit var userRef: DatabaseReference
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home_activity)
+
+        DataSeeder.seedExercises()
 
         auth = FirebaseAuth.getInstance()
         db = FirebaseDatabase.getInstance()
@@ -40,7 +44,6 @@ class MainActivity : BottomNavigationBarActivity() {
         userRef.child("name").addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val name = dataSnapshot.getValue(String::class.java)
-                Toast.makeText(this@MainActivity, "Welcome ${name ?: ""}", Toast.LENGTH_SHORT).show()
                 Log.d("FirebaseUser", "Value is: $name")
             }
 
@@ -78,7 +81,6 @@ class MainActivity : BottomNavigationBarActivity() {
         findViewById<ShapeableImageView>(R.id.iconAdd)?.setOnClickListener {
             startActivity(Intent(this, CreateWorkoutPlanActivity::class.java))
             overridePendingTransition(0, 0)
-            finish()
         }
     }
 
@@ -87,6 +89,8 @@ class MainActivity : BottomNavigationBarActivity() {
         intent.putExtra("CATEGORY", category)
         startActivity(intent)
     }
+
+
 }
 
 

@@ -1,26 +1,28 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="12dp">
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:gravity="center_vertical">
 
-    <com.google.android.material.textview.MaterialTextView
+    <TextView
         android:id="@+id/exerciseName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:text="@string/exercise_name"
-        android:textSize="18sp"
-        android:textColor="@color/black"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true" />
+        android:textSize="@dimen/text_size_18"
+        android:textColor="@android:color/black" />
 
-    <com.google.android.material.imageview.ShapeableImageView
+    <ImageView
         android:id="@+id/heartIcon"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="@dimen/layout_width_height_40"
+        android:layout_height="@dimen/layout_width_height_40"
+        android:padding="@dimen/heartIcon_padding"
         android:src="@drawable/red_heart_empty"
-        android:contentDescription="@string/favorite_icon"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:padding="4dp" />
-</RelativeLayout>
+        android:contentDescription="@string/favorite_icon" />
+
+
+
+</LinearLayout>

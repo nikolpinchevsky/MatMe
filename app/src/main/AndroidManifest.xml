@@ -31,6 +31,8 @@
         <activity android:name=".ui.CreateWorkoutPlanActivity" />
         <activity android:name=".ui.ExerciseListActivity" />
         <activity android:name=".ui.HomeActivity" />
+        <activity android:name=".MainActivity" />
+
 
     </application>
 

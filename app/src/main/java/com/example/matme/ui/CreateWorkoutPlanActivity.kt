@@ -1,108 +1,150 @@
 package com.example.matme.ui
 
 import android.os.Bundle
-import android.widget.*
-import androidx.appcompat.app.AppCompatActivity
+import android.view.Gravity
+import android.view.View
+import android.widget.LinearLayout
+import android.widget.Toast
+import com.example.matme.common.BottomNavigationBarActivity
 import com.example.matme.R
+import com.example.matme.model.Exercise
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textview.MaterialTextView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.database.*
 
-class CreateWorkoutPlanActivity : AppCompatActivity() {
-
-    private lateinit var editTextPlanName: EditText
+class CreateWorkoutPlanActivity : BottomNavigationBarActivity() {
+    private lateinit var editTextPlanName: TextInputEditText
+    private lateinit var createPlanButton: MaterialButton
     private lateinit var exerciseListContainer: LinearLayout
-    private lateinit var buttonCreatePlan: Button
-
-    private lateinit var db: FirebaseDatabase
     private lateinit var auth: FirebaseAuth
-
-    private val allExercises = mutableListOf<String>()
+    private val selectedExercises = mutableSetOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.create_workout_plan_activity)
 
-        db = FirebaseDatabase.getInstance()
+        editTextPlanName = findViewById(R.id.editTextPlanName)
+        createPlanButton = findViewById(R.id.buttonCreatePlan)
+        exerciseListContainer = findViewById(R.id.exerciseListContainer)
         auth = FirebaseAuth.getInstance()
 
-        editTextPlanName = findViewById(R.id.editTextPlanName)
-        exerciseListContainer = findViewById(R.id.exerciseListContainer)
-        buttonCreatePlan = findViewById(R.id.buttonCreatePlan)
+        loadExercises()
 
-        displayExercises()
-        fetchExercisesFromDatabase()
-
-        buttonCreatePlan.setOnClickListener {
+        createPlanButton.setOnClickListener {
             saveWorkoutPlan()
         }
     }
 
-    private fun fetchExercisesFromDatabase() {
-        val dbRef = FirebaseDatabase.getInstance().getReference("Exercises")
+    private fun loadExercises() {
+        val userId = auth.currentUser?.uid ?: return
+        val favRef = FirebaseDatabase.getInstance()
+            .getReference("users")
+            .child(userId)
+            .child("favorites")
 
-        dbRef.get().addOnSuccessListener { snapshot ->
-            allExercises.clear()
-            for (child in snapshot.children) {
-                val name = child.child("name").getValue(String::class.java)
-                if (!name.isNullOrBlank()) {
-                    allExercises.add(name)
+        favRef.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (!snapshot.exists()) {
+                    Toast.makeText(this@CreateWorkoutPlanActivity,
+                        "No favorite exercises found",
+                        Toast.LENGTH_SHORT).show()
+                    return
+                }
+
+                for (child in snapshot.children) {
+                    val exerciseName = child.key ?: continue
+                    exerciseListContainer.addView(createExerciseView(exerciseName))
                 }
             }
-            displayExercises()
-        }.addOnFailureListener {
-            Toast.makeText(this, "Failed to load exercises", Toast.LENGTH_SHORT).show()
-        }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(this@CreateWorkoutPlanActivity,
+                    "Failed to load favorite exercises",
+                    Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
-    private fun displayExercises() {
-        allExercises.forEach { exercise ->
-            val checkBox = CheckBox(this)
-            checkBox.text = exercise
-            checkBox.textSize = 16f
-            exerciseListContainer.addView(checkBox)
+
+    private fun createExerciseView(name: String): View {
+        val row = LinearLayout(this).apply {
+            orientation = LinearLayout.HORIZONTAL
+            layoutParams = LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT
+            ).apply { setMargins(0, 8, 0, 8) }
+            gravity = Gravity.CENTER_VERTICAL
+            setPadding(16, 8, 16, 8)
         }
+
+        val textView = MaterialTextView(this).apply {
+            text = name
+            textSize = 16f
+            setTextColor(resources.getColor(android.R.color.black))
+            layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f)
+        }
+
+        val addButton = MaterialButton(this).apply {
+            text = "+"
+            setOnClickListener {
+                if (selectedExercises.contains(name)) {
+                    Toast.makeText(this@CreateWorkoutPlanActivity,
+                        "$name is already added",
+                        Toast.LENGTH_SHORT)
+                        .show()
+                } else {
+                    selectedExercises.add(name)
+                    Toast.makeText(this@CreateWorkoutPlanActivity,
+                        "$name added to the plan",
+                        Toast.LENGTH_SHORT)
+                        .show()
+                }
+            }
+        }
+
+        row.addView(textView)
+        row.addView(addButton)
+        return row
     }
 
     private fun saveWorkoutPlan() {
-        val planName = editTextPlanName.text.toString().trim()
-        val selectedExercises = mutableListOf<String>()
+        val planNameOriginal = editTextPlanName.text.toString().trim()
+        val planNameLower = planNameOriginal.lowercase()
+        val userId = auth.currentUser?.uid ?: return
 
-        for (i in 0 until exerciseListContainer.childCount) {
-            val view = exerciseListContainer.getChildAt(i)
-            if (view is CheckBox && view.isChecked) {
-                selectedExercises.add(view.text.toString())
-            }
-        }
-
-        if (planName.isEmpty() || selectedExercises.isEmpty()) {
-            Toast.makeText(this, "Please enter a plan name and select exercises", Toast.LENGTH_SHORT).show()
+        if (planNameOriginal.isEmpty() || selectedExercises.isEmpty()) {
+            Toast.makeText(this,
+                "Please enter a plan name and add at least one exercise",
+                Toast.LENGTH_SHORT)
+                .show()
             return
         }
 
-        val userId = auth.currentUser?.uid ?: return
-
-        val database = FirebaseDatabase.getInstance()
-        val myRef = database.getReference("WorkoutPlans")
-
-        val planId = myRef.push().key
+        val dbRef = FirebaseDatabase.getInstance().getReference("Plans")
+        val planId = dbRef.push().key ?: return
 
         val planData = mapOf(
-            "planName" to planName,
-            "exercises" to selectedExercises,
+            "planName" to planNameOriginal,
+            "planNameLower" to planNameLower,
+            "exercises" to selectedExercises.toList(),
             "userId" to userId
         )
 
-        if (planId != null) {
-            myRef.child(planId).setValue(planData)
-                .addOnSuccessListener {
-                    Toast.makeText(this, "Workout plan saved successfully!", Toast.LENGTH_SHORT).show()
-                    finish()
-                }
-                .addOnFailureListener {
-                    Toast.makeText(this, "Failed to save plan", Toast.LENGTH_SHORT).show()
-                }
-        }
+        dbRef.child(planId).setValue(planData)
+            .addOnSuccessListener {
+                Toast.makeText(this,
+                    "Workout plan saved successfully!",
+                    Toast.LENGTH_SHORT)
+                    .show()
+                finish()
+            }
+            .addOnFailureListener {
+                Toast.makeText(this,
+                    "Failed to save the plan",
+                    Toast.LENGTH_SHORT)
+                    .show()
+            }
     }
-
 }

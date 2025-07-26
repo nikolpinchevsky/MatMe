@@ -37,6 +37,7 @@ android {
     }
     buildFeatures {
         compose = true
+        viewBinding = true
     }
 }
 
@@ -67,19 +68,15 @@ dependencies {
     implementation(libs.firebase.ui.auth)
 
     // Realtime DB:
-    implementation(libs.firebase.databace)
+    implementation(libs.firebase.database)
 
     // Google
     implementation (libs.play.services.auth)
     implementation (libs.firebase.auth)
 
-    // Saving an application registration
-    implementation (libs.firebase.firestore)
-
     implementation (libs.material.v1110)
 
-    // Database of exercises
-    implementation (libs.firebase.firestore.ktx)
+
 
 
 

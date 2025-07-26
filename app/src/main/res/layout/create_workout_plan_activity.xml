@@ -4,26 +4,26 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@android:color/white"
-    android:padding="24dp">
+    android:padding="@dimen/padding_24dp">
 
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/create_workout_plan"
         android:textColor="@color/black"
-        android:textSize="28sp"
+        android:textSize="@dimen/create_workout_plan_text_size"
         android:textStyle="bold"
-        android:layout_marginBottom="16dp"
-        android:padding="12dp" />
+        android:layout_marginBottom="@dimen/create_workout_plan_margin"
+        android:padding="@dimen/create_workout_plan_padding" />
 
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/workout_plan_name"
         android:textColor="@color/black"
-        android:textSize="16sp"
+        android:textSize="@dimen/workout_plan_name_text_size"
         android:textStyle="bold"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="@dimen/workout_plan_name_margin" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/editTextPlanName"
@@ -31,17 +31,17 @@
         android:layout_height="wrap_content"
         android:hint="@string/e_g_full_body_workout"
         android:background="@drawable/title_background"
-        android:padding="12dp"
-        android:layout_marginBottom="16dp" />
+        android:padding="@dimen/full_body_workout_padding"
+        android:layout_marginBottom="@dimen/full_body_workout_margin" />
 
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:text="@string/select_exercises"
-        android:textSize="18sp"
+        android:textSize="@dimen/select_exercises_text_size"
         android:textStyle="bold"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="@dimen/select_exercises_margin" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -60,7 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_marginTop="16dp">
+        android:layout_marginTop="@dimen/top_margin">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonCreatePlan"
@@ -68,10 +68,10 @@
             android:layout_height="wrap_content"
             android:text="@string/Save_workout"
             android:textColor="@color/black"
-            android:paddingLeft="24dp"
-            android:paddingRight="24dp"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp" />
+            android:paddingLeft="@dimen/Save_workout_padding"
+            android:paddingRight="@dimen/Save_workout_padding"
+            android:paddingTop="@dimen/Save_workout_padding_top"
+            android:paddingBottom="@dimen/Save_workout_padding_bottom" />
     </LinearLayout>
 
     <LinearLayout
@@ -79,47 +79,52 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="bottom|center"
-        android:layout_marginTop="8dp">
+        android:layout_marginTop="@dimen/l_top_margin">
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:layout_width="0dp"
-            android:layout_height="32dp"
+            android:id="@+id/iconHome"
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="@dimen/icons_height"
             android:layout_weight="1"
             android:src="@drawable/home"
             android:contentDescription="@string/home"
-            android:padding="4dp" />
+            android:padding="@dimen/icons_padding" />
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:layout_width="0dp"
-            android:layout_height="32dp"
+            android:id="@+id/iconSearch"
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="@dimen/icons_height"
             android:layout_weight="1"
             android:src="@drawable/search"
             android:contentDescription="@string/search"
-            android:padding="4dp" />
+            android:padding="@dimen/icons_padding" />
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:layout_width="0dp"
-            android:layout_height="32dp"
+            android:id="@+id/iconAdd"
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="@dimen/icons_height"
             android:layout_weight="1"
             android:src="@drawable/add"
             android:contentDescription="@string/add"
-            android:padding="4dp" />
+            android:padding="@dimen/icons_padding" />
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:layout_width="0dp"
-            android:layout_height="32dp"
+            android:id="@+id/iconFavorites"
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="@dimen/icons_height"
             android:layout_weight="1"
             android:src="@drawable/heart"
             android:contentDescription="@string/favorites"
-            android:padding="4dp" />
+            android:padding="@dimen/icons_padding" />
 
         <com.google.android.material.imageview.ShapeableImageView
-            android:layout_width="0dp"
-            android:layout_height="32dp"
+            android:id="@+id/iconProfile"
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="@dimen/icons_height"
             android:layout_weight="1"
             android:src="@drawable/profile"
             android:contentDescription="@string/profile"
-            android:padding="4dp" />
+            android:padding="@dimen/icons_padding" />
     </LinearLayout>
 
 </LinearLayout>

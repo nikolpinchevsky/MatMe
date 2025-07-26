@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="32dp"
+    android:padding="@dimen/padding_32"
     android:gravity="center_horizontal">
 
     <LinearLayout
@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/matme"
-            android:textSize="32sp"
+            android:textSize="@dimen/title_text_size"
             android:textStyle="bold"
             android:layout_marginBottom="36dp" />
 
@@ -28,17 +28,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sign_in"
-            android:textSize="24sp"
+            android:textSize="@dimen/signinTitle_text_size"
             android:textStyle="bold"
-            android:layout_marginBottom="4dp" />
+            android:layout_marginBottom="@dimen/signinTitle_marginBottom" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/signinSubtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/create_an_account_to_get_started"
-            android:textSize="18sp"
-            android:layout_marginBottom="24dp" />
+            android:textSize="@dimen/signinSubtitle_textSize"
+            android:layout_marginBottom="@dimen/signinSubtitle_marginBotoom" />
 
     </LinearLayout>
 
@@ -51,7 +51,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="@dimen/layout_marginBottom_16">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextName"
@@ -66,7 +66,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="@dimen/layout_marginBottom_16">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextEmail"
@@ -81,7 +81,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp">
+            android:layout_marginBottom="@dimen/layout_marginBottom_32">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextPassword"

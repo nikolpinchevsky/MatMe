@@ -3,6 +3,7 @@ agp = "8.11.1"
 firebaseAuth = "22.3.1"
 firebaseBom = "33.15.0"
 firebaseDatabase = "22.0.0"
+firebaseDatabaseVersion = "20.3.0"
 firebaseFirestore = "25.1.4"
 firebaseFirestoreKtx = "25.1.4"
 firebaseUiAuth = "8.0.2"
@@ -17,7 +18,8 @@ composeBom = "2024.09.00"
 material = "1.12.0"
 gs = "4.4.2"
 materialVersion = "1.11.0"
-playServicesAuth = "21.3.0"
+playServicesAuth = "20.7.0"
+playServicesCredentials = "17.0.0"
 
 
 [libraries]
@@ -28,6 +30,8 @@ firebase-auth = { module = "com.google.firebase:firebase-auth", version.ref = "f
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 firebase-databace = { module = "com.google.firebace:firebase-databace" }
 firebase-database = { module = "com.google.firebase:firebase-database" }
+firebase-database-ktx = { module = "com.google.firebase:firebase-database-ktx" }
+firebase-database-v2030 = { module = "com.google.firebase:firebase-database", version.ref = "firebaseDatabaseVersion" }
 firebase-firestore = { module = "com.google.firebase:firebase-firestore", version.ref = "firebaseFirestore" }
 firebase-firestore-ktx = { module = "com.google.firebase:firebase-firestore-ktx", version.ref = "firebaseFirestoreKtx" }
 firebase-ui-auth = { module = "com.firebaseui:firebase-ui-auth", version.ref = "firebaseUiAuth" }
@@ -48,6 +52,7 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 material-v1110 = { module = "com.google.android.material:material", version.ref = "materialVersion" }
 play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "playServicesAuth" }
+play-services-credentials = { module = "com.google.android.gms:play-services-credentials", version.ref = "playServicesCredentials" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

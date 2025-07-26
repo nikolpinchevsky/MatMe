@@ -1,5 +1,7 @@
 package com.example.matme.model
 
-data class Exercise( val name: String = "",
-                     val category: String = "",
-                     var isFavorite: Boolean = false )
+
+data class Exercise(
+    val name: String = "",
+    var isFavorite: Boolean = false
+)
