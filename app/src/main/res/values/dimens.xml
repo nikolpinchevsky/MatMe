@@ -81,4 +81,10 @@
     <dimen name="signinSubtitle_marginBotoom">24dp</dimen>
     <dimen name="layout_marginBottom_16">16dp</dimen>
     <dimen name="layout_marginBottom_32">32dp</dimen>
+    <dimen name="text_size_title">32sp</dimen>
+    <dimen name="signinTitle_textSize">24sp</dimen>
+    <dimen name="signinTitle_Margin">12dp</dimen>
+    <dimen name="signinSubtitle_margin">24dp</dimen>
+    <dimen name="buttonSignIn_marginTop">16dp</dimen>
+    <dimen name="buttonSignIn_marginBottom">24dp</dimen>
 </resources>
