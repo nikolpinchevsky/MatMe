@@ -19,8 +19,8 @@
 
     <LinearLayout
         android:id="@+id/bottom_navigation"
-        android:layout_width="@dimen/_0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
         android:orientation="horizontal"
         android:background="@android:color/white"
         android:padding="@dimen/l_top_margin"
@@ -31,7 +31,7 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iconHome"
-            android:layout_width="@dimen/_0dp"
+            android:layout_width="0dp"
             android:layout_height="@dimen/icons_height"
             android:layout_weight="1"
             android:src="@drawable/home"
@@ -40,7 +40,7 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iconSearch"
-            android:layout_width="@dimen/_0dp"
+            android:layout_width="0dp"
             android:layout_height="@dimen/icons_height"
             android:layout_weight="1"
             android:src="@drawable/search"
@@ -49,7 +49,7 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iconAdd"
-            android:layout_width="@dimen/_0dp"
+            android:layout_width="0dp"
             android:layout_height="@dimen/icons_height"
             android:layout_weight="1"
             android:src="@drawable/add"
@@ -58,7 +58,7 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iconFavorites"
-            android:layout_width="@dimen/_0dp"
+            android:layout_width="0dp"
             android:layout_height="@dimen/icons_height"
             android:layout_weight="1"
             android:src="@drawable/heart"
@@ -67,7 +67,7 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iconProfile"
-            android:layout_width="@dimen/_0dp"
+            android:layout_width="0dp"
             android:layout_height="@dimen/icons_height"
             android:layout_weight="1"
             android:src="@drawable/profile"
