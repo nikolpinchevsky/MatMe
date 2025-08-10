@@ -7,13 +7,13 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import com.example.matme.common.BottomNavigationBarActivity
 import com.example.matme.R
-import com.example.matme.model.Exercise
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textview.MaterialTextView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
+// Activity extends BottomNavigationBarActivity to reuse the bottom nav UI.
 class CreateWorkoutPlanActivity : BottomNavigationBarActivity() {
     private lateinit var editTextPlanName: TextInputEditText
     private lateinit var createPlanButton: MaterialButton
@@ -30,20 +30,26 @@ class CreateWorkoutPlanActivity : BottomNavigationBarActivity() {
         exerciseListContainer = findViewById(R.id.exerciseListContainer)
         auth = FirebaseAuth.getInstance()
 
+        // Load the user's favorite exercises from Firebase
         loadExercises()
 
+        // Save plan when the "Create Plan" button is clicked
         createPlanButton.setOnClickListener {
             saveWorkoutPlan()
         }
     }
 
+    // Loads the user's favorite exercises from Firebase and shows them in the list
     private fun loadExercises() {
+        // Get current user ID or exit if not logged in
         val userId = auth.currentUser?.uid ?: return
+        // Reference to user's favorites in Firebase
         val favRef = FirebaseDatabase.getInstance()
             .getReference("users")
             .child(userId)
             .child("favorites")
 
+        // Read favorites once
         favRef.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (!snapshot.exists()) {
@@ -53,6 +59,7 @@ class CreateWorkoutPlanActivity : BottomNavigationBarActivity() {
                     return
                 }
 
+                // For each favorite exercise, create a row in the UI
                 for (child in snapshot.children) {
                     val exerciseName = child.key ?: continue
                     exerciseListContainer.addView(createExerciseView(exerciseName))
@@ -67,8 +74,9 @@ class CreateWorkoutPlanActivity : BottomNavigationBarActivity() {
         })
     }
 
-
+    // Creates a single row in the list with the exercise name and a "+" button to add it to the plan
     private fun createExerciseView(name: String): View {
+        // Creates a horizontal row with the exercise name and a "+" button
         val row = LinearLayout(this).apply {
             orientation = LinearLayout.HORIZONTAL
             layoutParams = LinearLayout.LayoutParams(
@@ -79,6 +87,7 @@ class CreateWorkoutPlanActivity : BottomNavigationBarActivity() {
             setPadding(16, 8, 16, 8)
         }
 
+        // Text displaying the exercise name
         val textView = MaterialTextView(this).apply {
             text = name
             textSize = 16f
@@ -86,6 +95,7 @@ class CreateWorkoutPlanActivity : BottomNavigationBarActivity() {
             layoutParams = LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f)
         }
 
+        // Button to add exercise to selected list
         val addButton = MaterialButton(this).apply {
             text = "+"
             setOnClickListener {
@@ -109,11 +119,13 @@ class CreateWorkoutPlanActivity : BottomNavigationBarActivity() {
         return row
     }
 
+    // Saves the workout plan with its name and selected exercises to Firebase
     private fun saveWorkoutPlan() {
         val planNameOriginal = editTextPlanName.text.toString().trim()
         val planNameLower = planNameOriginal.lowercase()
         val userId = auth.currentUser?.uid ?: return
 
+        // Validation: name and exercises must be provided
         if (planNameOriginal.isEmpty() || selectedExercises.isEmpty()) {
             Toast.makeText(this,
                 "Please enter a plan name and add at least one exercise",
@@ -122,6 +134,7 @@ class CreateWorkoutPlanActivity : BottomNavigationBarActivity() {
             return
         }
 
+        // Create new plan in "Plans" collection in Firebase
         val dbRef = FirebaseDatabase.getInstance().getReference("Plans")
         val planId = dbRef.push().key ?: return
 
@@ -132,6 +145,7 @@ class CreateWorkoutPlanActivity : BottomNavigationBarActivity() {
             "userId" to userId
         )
 
+        // Save plan and give user feedback
         dbRef.child(planId).setValue(planData)
             .addOnSuccessListener {
                 Toast.makeText(this,

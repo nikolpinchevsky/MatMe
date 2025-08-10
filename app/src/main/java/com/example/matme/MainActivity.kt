@@ -17,21 +17,25 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
+//Displays exercise categories and allows navigation to other activities
 class MainActivity : BottomNavigationBarActivity() {
 
-    private lateinit var auth: FirebaseAuth
-    private lateinit var db: FirebaseDatabase
-    private lateinit var userRef: DatabaseReference
+    private lateinit var auth: FirebaseAuth  // Firebase Authentication
+    private lateinit var db: FirebaseDatabase  // Firebase Realtime Database
+    private lateinit var userRef: DatabaseReference  // Reference to the logged-in user's data
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home_activity)
 
+        // Fill database with exercises if not already present
         DataSeeder.seedExercises()
 
+        // Initialize Firebase
         auth = FirebaseAuth.getInstance()
         db = FirebaseDatabase.getInstance()
 
+        // Check if user is logged in
         val user = auth.currentUser
         if (user == null) {
             startActivity(Intent(this, LogInActivity::class.java))
@@ -39,8 +43,10 @@ class MainActivity : BottomNavigationBarActivity() {
             return
         }
 
+        // Get a reference to the current user's data in the database
         userRef = db.getReference("users").child(user.uid)
 
+        // Fetch and log the user's name from the database
         userRef.child("name").addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val name = dataSnapshot.getValue(String::class.java)
@@ -52,10 +58,14 @@ class MainActivity : BottomNavigationBarActivity() {
             }
         })
 
+        // Set click listeners for category cards
         setupCategoryClicks()
+
+        // Set click listener for the add workout button
         setupAddButton()
     }
 
+    //Set click listeners for each exercise category
     private fun setupCategoryClicks() {
         findViewById<LinearLayout>(R.id.back).setOnClickListener {
             openExerciseList("back")
@@ -77,6 +87,7 @@ class MainActivity : BottomNavigationBarActivity() {
         }
     }
 
+    //Set click listener for "Add" icon to create a workout plan
     private fun setupAddButton() {
         findViewById<ShapeableImageView>(R.id.iconAdd)?.setOnClickListener {
             startActivity(Intent(this, CreateWorkoutPlanActivity::class.java))
@@ -84,6 +95,7 @@ class MainActivity : BottomNavigationBarActivity() {
         }
     }
 
+    //Open the Exercise List screen for the selected category
     private fun openExerciseList(category: String) {
         val intent = Intent(this, ExerciseListActivity::class.java)
         intent.putExtra("CATEGORY", category)

@@ -11,17 +11,22 @@ import com.example.matme.ui.ProfileActivity
 import com.example.matme.ui.SearchActivity
 import com.google.android.material.imageview.ShapeableImageView
 
+// Base Activity for Bottom Navigation Bar
+// // Handles navigation between main sections of the app
 open class BottomNavigationBarActivity : AppCompatActivity() {
 
+    // Called when the Activity is created
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
 
+    // Ensures bottom navigation is set up every time a layout is set
     override fun setContentView(layoutResID: Int) {
         super.setContentView(layoutResID)
         setupBottomNavigation()
     }
 
+    // Sets up click listeners for bottom navigation icons
     protected fun setupBottomNavigation() {
         val currentActivity = this::class.java
 
@@ -31,6 +36,7 @@ open class BottomNavigationBarActivity : AppCompatActivity() {
         val favoritesButton = findViewById<ShapeableImageView>(R.id.iconFavorites)
         val profileButton = findViewById<ShapeableImageView>(R.id.iconProfile)
 
+        // Go to Home (MainActivity) if not already there
         homeButton?.setOnClickListener {
             if (currentActivity != MainActivity::class.java) {
                 startActivity(Intent(this, MainActivity::class.java))
@@ -38,6 +44,7 @@ open class BottomNavigationBarActivity : AppCompatActivity() {
             }
         }
 
+        // Go to SearchActivity
         searchButton?.setOnClickListener {
             if (currentActivity != SearchActivity::class.java) {
                 startActivity(Intent(this, SearchActivity::class.java))
@@ -45,6 +52,7 @@ open class BottomNavigationBarActivity : AppCompatActivity() {
             }
         }
 
+        // Go to CreateWorkoutPlanActivity
         addButton?.setOnClickListener {
             if (currentActivity != CreateWorkoutPlanActivity::class.java) {
                 startActivity(Intent(this, CreateWorkoutPlanActivity::class.java))
@@ -52,6 +60,7 @@ open class BottomNavigationBarActivity : AppCompatActivity() {
             }
         }
 
+        // Go to FavoritesActivity
         favoritesButton?.setOnClickListener {
             if (currentActivity != FavoritesActivity::class.java) {
                 startActivity(Intent(this, FavoritesActivity::class.java))
@@ -59,6 +68,7 @@ open class BottomNavigationBarActivity : AppCompatActivity() {
             }
         }
 
+        // Go to ProfileActivity
         profileButton?.setOnClickListener {
             if (currentActivity != ProfileActivity::class.java) {
                 startActivity(Intent(this, ProfileActivity::class.java))
