@@ -5,13 +5,13 @@ Whether you're a Pilates instructor, a trainee, or someone looking for structure
 
 ## Features
 
-- Browse a built-in library of Pilates mat exercises
-- Filter exercises by difficulty, category, duration, or muscle focus
-- Generate custom workouts based on the number of exercises selected
-- Random workout generator for quick and automatic session creation
-- View detailed instructions and images for each exercise
-- Save and manage favorite workouts
-- Modern and minimal Material Design UI
+- Browse a built-in list of Pilates mat exercises  
+- Search exercises by **name**  
+- Filter exercises by **muscle group**  
+- View exercise details including description 
+- Add exercises to **Favorites** for quick access  
+- Create custom workout sets by selecting a name and choosing exercises  
+- Clean and minimal Material Design interface  
 
 ## Getting Started
 
