@@ -1,6 +1,6 @@
 # MatMe
 
-MatMe is a powerful mobile application designed to simplify the process of creating customized Pilates mat workouts.  
+MatMe is a mobile application designed to simplify the process of creating customized Pilates mat workouts.  
 Whether you're a Pilates instructor, a trainee, or someone looking for structured training sessions, MatMe provides you with a seamless and efficient way to generate tailored Pilates routines based on your specific needs.
 
 ## Features
